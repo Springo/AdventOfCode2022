@@ -101,3 +101,14 @@ def count_val(grid, val):
                 count += 1
 
     return count
+
+
+def expand_grid(grid, n, c):
+    width = len(grid[0])
+    expanded_lines = [[c] * (width + 2 * n) for _ in range(n)]
+    for line in grid:
+        new_line = [c] * n + line + [c] * n
+        expanded_lines.append(new_line)
+    expanded_lines.extend([[c] * (width + 2 * n) for _ in range(n)])
+
+    return expanded_lines

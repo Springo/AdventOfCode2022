@@ -46,15 +46,8 @@ def get_bounds(grid):
 
 
 lines = readFile("d23input.txt")
-width = len(lines[0])
-expand = 80
 grid = gdu.convert_to_grid(lines)
-expanded_lines = [['.'] * (width + 2 * expand) for _ in range(expand)]
-for line in grid:
-    new_line = ['.'] * expand + line + ['.'] * expand
-    expanded_lines.append(new_line)
-expanded_lines.extend([['.'] * (width + 2 * expand) for _ in range(expand)])
-grid = expanded_lines
+grid = gdu.expand_grid(grid, 80, '.')
 
 ops = ['N', 'S', 'W', 'E']
 r = 0
